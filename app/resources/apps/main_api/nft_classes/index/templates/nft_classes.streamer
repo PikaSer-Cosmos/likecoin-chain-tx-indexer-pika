@@ -1,0 +1,43 @@
+# frozen_string_literal: true
+
+json.object! do
+  json.set!(:classes, nft_classes) do |nft_class|
+    json.object! do
+      json.extract!(
+        nft_class,
+        :name,
+        :description,
+        :uri,
+        :uri_hash,
+      )
+
+      json.set! :id, nft_class.class_id
+      json.set! :created_at, nft_class.class_created_at
+
+      json.set! :parent do
+        json.object! do
+          json.merge!(
+            type: nft_class.parent_type,
+            iscn_id_prefix: nft_class.parent_iscn_id_prefix,
+            account: nft_class.parent_account,
+          )
+        end
+      end
+
+      # `Sequel::Postgres::JSONBHash` not handled well by default
+      json.set! :metadata, nft_class.metadata.to_h
+      json.set! :config, nft_class.config.to_h
+
+      if nft_class.iscn
+        json.set! :iscn do
+          json.object! do
+            json.extract!(
+              nft_class.iscn,
+              :owner,
+            )
+          end
+        end
+      end
+    end
+  end
+end

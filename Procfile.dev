@@ -1,0 +1,14 @@
+# See the following references for var assignment & default value
+# http://unix.stackexchange.com/questions/122845/using-a-b-for-variable-assignment-in-scripts
+# http://tldp.org/LDP/abs/html/parameter-substitution.html
+
+# We don't need to assign the variables,
+# since they are passed in as command line arguments
+#
+# using `bundle exec` will always use Passenger open source version
+# To use enterprise version `bundle exec` must be removed
+#
+# Log prefix with PID is disabled with `--disable-log-prefix` requiring 6.0.2
+# https://github.com/phusion/passenger/pull/2176/files#diff-edfe2c280cf58aa023061b9b4a1a8574
+web:                bundle exec puma
+worker:             bundle exec good_job
