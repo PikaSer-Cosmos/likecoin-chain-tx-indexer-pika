@@ -10,9 +10,13 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
-  mount PgHero::Engine, at: "pghero"
+  if ENV![:PGHERO_DASHBOARD_ENABLED]
+    mount PgHero::Engine, at: "pghero"
+  end
 
-  mount GoodJob::Engine => "good_job"
+  if ENV![:GOOD_JOB_DASHBOARD_ENABLED]
+    mount GoodJob::Engine => "good_job"
+  end
 
   namespace :apps__main_api__nft_classes__index, path: "/apps/main_api/nft_classes" do
     get(

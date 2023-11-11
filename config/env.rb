@@ -8,4 +8,22 @@ ENV!.config do
     # Default to PikaSer API to avoid rate limit
     default: "https://rest-likecoin-mainnet.pikaser.net",
   )
+
+  use(
+    :PGHERO_DASHBOARD_ENABLED,
+    <<~DESC.strip,
+      Enable https://github.com/ankane/pghero dashboard
+    DESC
+    class: :boolean,
+    default: false,
+  )
+
+  use(
+    :GOOD_JOB_DASHBOARD_ENABLED,
+    <<~DESC.strip,
+      Enable https://github.com/bensheldon/good_job dashboard
+    DESC
+    class: :boolean,
+    default: false,
+  )
 end

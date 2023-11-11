@@ -40,8 +40,11 @@ env:
   secret:
     - RAILS_MASTER_KEY
     - POSTGRES_PASSWORD
+    - LIKECOIN_NODE_REST_API_BASE_URL
+    - PGHERO_DASHBOARD_ENABLED
     - PGHERO_USERNAME
     - PGHERO_PASSWORD
+    - GOOD_JOB_DASHBOARD_ENABLED
 
 # Use a different ssh user than root
 ssh:
