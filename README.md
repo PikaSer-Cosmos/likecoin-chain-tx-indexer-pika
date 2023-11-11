@@ -39,8 +39,8 @@ Mostly recent enough ruby version which is `>= 3.2.2`
 #### Local
 - Install [Kamal](https://kamal-deploy.org) (probably just `gem install kamal`)
 - Prepare container registry like [Docker Hub](https://www.docker.com/products/docker-hub/), [GitHub Container Registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry) or host your own
-- Copy `deploy.example.yml` to `deploy.yml`
-- Update `deploy.yml` to suit yourself (For host IP you need your remote host setup first)
+- Copy `config/deploy.example.yml` to `config/deploy.yml`
+- Update `config/deploy.yml` to suit yourself (For host IP you need your remote host setup first)
 - Review `.env` again (which might affects deploy settings and/or app on production)
 
 #### Remote
