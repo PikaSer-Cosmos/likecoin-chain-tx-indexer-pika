@@ -78,7 +78,7 @@ module NftClasses::GetRemoteClassCreatedAt::GetFromLikecoinIndexer::GetForAllCla
 
       loop do
         data = get_classes(next_key)
-        validation_result = ValidRepsonseContract.new.call(data)
+        validation_result = ValidResponseContract.new.call(data)
         raise "response invalid" if validation_result.failure?
         classes.concat(validation_result.to_h.fetch(:classes).map {|h| ValidSingleNftClassStruct.new(h) })
         next_key = ValidResponsePaginationDataStruct.new(validation_result.to_h[:pagination]).next_key
@@ -113,7 +113,7 @@ module NftClasses::GetRemoteClassCreatedAt::GetFromLikecoinIndexer::GetForAllCla
     end
 
     # /cosmos/nft/v1beta1/classes
-    class ValidRepsonseContract < Dry::Validation::Contract
+    class ValidResponseContract < Dry::Validation::Contract
       json do
         required(:classes).array(:hash) do
           required(:id).filled(:string)
@@ -125,7 +125,7 @@ module NftClasses::GetRemoteClassCreatedAt::GetFromLikecoinIndexer::GetForAllCla
         end
       end
     end
-    private_constant :ValidRepsonseContract
+    private_constant :ValidResponseContract
 
     class ValidResponsePaginationDataStruct < ::Dry::Struct
       module Types

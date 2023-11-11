@@ -88,7 +88,7 @@ module Nfts::GetRemoteNfts::GetNftsForOneClassId::GetFromRestApiNode
 
     memo_wise def parsed_valid_nfts_data_entries
       data = get_remote_nft_data
-      validation_result = ValidRepsonseContract.new.call(data)
+      validation_result = ValidResponseContract.new.call(data)
       if validation_result.failure?
         puts validation_result.errors.to_h
         raise "response invalid"
@@ -119,7 +119,7 @@ module Nfts::GetRemoteNfts::GetNftsForOneClassId::GetFromRestApiNode
     end
 
     # /cosmos/nft/v1beta1/classes
-    class ValidRepsonseContract < Dry::Validation::Contract
+    class ValidResponseContract < Dry::Validation::Contract
       module Types
         include Dry.Types()
       end
@@ -135,7 +135,7 @@ module Nfts::GetRemoteNfts::GetNftsForOneClassId::GetFromRestApiNode
         end
       end
     end
-    private_constant :ValidRepsonseContract
+    private_constant :ValidResponseContract
 
     class ValidSingleNftStruct < ::Dry::Struct
       prepend ::MemoWise
