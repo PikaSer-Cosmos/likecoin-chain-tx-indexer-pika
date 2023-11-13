@@ -4,6 +4,8 @@
 ARG RUBY_VERSION=3.2.2
 FROM public.ecr.aws/docker/library/ruby:$RUBY_VERSION-slim as base
 
+ARG RUBYGEMS_VERSION=3.4.22
+
 # Rails app lives here
 WORKDIR /rails
 
@@ -13,6 +15,11 @@ ENV RAILS_ENV="production" \
     BUNDLE_PATH="/usr/local/bundle" \
     BUNDLE_WITHOUT="development"
 
+RUN \
+  gem update --system="$RUBYGEMS_VERSION" --no-document \
+    && \
+  gem --version
+
 
 # Throw-away build stage to reduce size of final image
 FROM base as build
@@ -20,11 +27,6 @@ FROM base as build
 # Install packages needed to build gems
 RUN apt-get update -qq && \
     apt-get install --no-install-recommends -y build-essential git libpq-dev pkg-config
-
-RUN \
-  gem update --system="3.4.21" --no-document \
-    && \
-  gem --version
 
 # Install application gems, slightly outdated for cached later
 COPY docker/app/gem_cache/Gemfile docker/app/gem_cache/Gemfile.lock ./
