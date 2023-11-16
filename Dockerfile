@@ -55,7 +55,7 @@ RUN apt-get update -qq && \
       curl \
       postgresql-client \
     && \
-    rm -rf /var/lib/apt/lists /var/cache/apt/archives
+    apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Copy built artifacts: gems, application
 COPY --from=build /usr/local/bundle /usr/local/bundle
