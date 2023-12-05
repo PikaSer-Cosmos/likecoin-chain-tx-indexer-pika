@@ -4,6 +4,12 @@
 ARG RUBY_VERSION=3.2.2
 FROM public.ecr.aws/docker/library/ruby:$RUBY_VERSION-slim as base
 
+# https://docs.docker.com/engine/reference/builder/#automatic-platform-args-in-the-global-scope
+ARG TARGETPLATFORM
+ARG TARGETOS
+ARG TARGETARCH
+ARG TARGETVARIANT
+
 ARG RUBYGEMS_VERSION=3.4.22
 
 # Rails app lives here
@@ -20,13 +26,23 @@ RUN \
     && \
   gem --version
 
+# We will keep downloaded packages in cache mounts, no need to cleanup
+# See more at https://vsupalov.com/buildkit-cache-mount-dockerfile/
+#
+# `Binary::apt::APT::Keep-Downloaded-Packages "true"` is from
+# https://github.com/docker/buildx/issues/549#issuecomment-1788297892
+RUN \
+  rm -f /etc/apt/apt.conf.d/docker-clean; echo 'Binary::apt::APT::Keep-Downloaded-Packages "true";' > /etc/apt/apt.conf.d/keep-cache
+
 
 # Throw-away build stage to reduce size of final image
 FROM base as build
 
 # Install packages needed to build gems
-RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y build-essential git libpq-dev pkg-config
+RUN \
+  --mount=type=cache,id=apt-$TARGETARCH$TARGETVARIANT,sharing=locked,target=/var/cache/apt \
+  apt-get update -qq && \
+  apt-get install --no-install-recommends -y build-essential git libpq-dev pkg-config
 
 # Install application gems, slightly outdated for cached later
 COPY docker/app/gem_cache/Gemfile docker/app/gem_cache/Gemfile.lock ./
@@ -50,12 +66,15 @@ RUN bundle exec bootsnap precompile app/ lib/
 FROM base
 
 # Install packages needed for deployment
-RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y  \
-      curl \
-      postgresql-client \
-    && \
-    apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+# WITHOUT removing downloaded packages (saved in cache mount)
+RUN \
+  --mount=type=cache,id=apt-$TARGETARCH$TARGETVARIANT,sharing=locked,target=/var/cache/apt \
+  apt-get update -qq && \
+  apt-get install --no-install-recommends -y  \
+    curl \
+    postgresql-client \
+  && \
+  rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Copy built artifacts: gems, application
 COPY --from=build /usr/local/bundle /usr/local/bundle
