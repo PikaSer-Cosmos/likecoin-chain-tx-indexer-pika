@@ -45,16 +45,19 @@ RUN \
   apt-get install --no-install-recommends -y build-essential git libpq-dev pkg-config
 
 # Install application gems, slightly outdated for cached later
-COPY docker/app/gem_cache/Gemfile docker/app/gem_cache/Gemfile.lock ./
+# Using mount instead of copying = one less layer
 RUN \
-  MAKE="make --jobs $(nproc)"\
+  --mount=target=.,source=docker/app/gem_cache \
+  MAKE="make --jobs $(nproc)" \
   bundle install --jobs="$(nproc)" && \
   rm -rf ~/.bundle/ "${BUNDLE_PATH}"/ruby/*/cache "${BUNDLE_PATH}"/ruby/*/bundler/gems/*/.git
 
 # Install application gems
-COPY Gemfile Gemfile.lock ./
+# Using mount instead of copying = one less layer
+# Gemfile & Gemfile.lock are still copied later
 RUN \
-  MAKE="make --jobs $(nproc)"\
+  --mount=target=. \
+  MAKE="make --jobs $(nproc)" \
   bundle install --jobs="$(nproc)" && \
   rm -rf ~/.bundle/ "${BUNDLE_PATH}"/ruby/*/cache "${BUNDLE_PATH}"/ruby/*/bundler/gems/*/.git && \
   bundle exec bootsnap precompile --gemfile
