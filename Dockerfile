@@ -40,7 +40,8 @@ FROM base as build
 
 # Install packages needed to build gems
 RUN \
-  --mount=type=cache,id=apt-$TARGETARCH$TARGETVARIANT,sharing=locked,target=/var/cache/apt \
+  --mount=type=cache,id=apt-package-lists-$TARGETARCH$TARGETVARIANT,sharing=locked,target=/var/lib/apt/lists \
+  --mount=type=cache,id=apt-cache-$TARGETARCH$TARGETVARIANT,sharing=locked,target=/var/cache/apt \
   apt-get update -qq && \
   apt-get install --no-install-recommends -y build-essential git libpq-dev pkg-config
 
@@ -75,13 +76,14 @@ FROM base
 # Install packages needed for deployment
 # WITHOUT removing downloaded packages (saved in cache mount)
 RUN \
-  --mount=type=cache,id=apt-$TARGETARCH$TARGETVARIANT,sharing=locked,target=/var/cache/apt \
+  --mount=type=cache,id=apt-package-lists-$TARGETARCH$TARGETVARIANT,sharing=locked,target=/var/lib/apt/lists \
+  --mount=type=cache,id=apt-cache-$TARGETARCH$TARGETVARIANT,sharing=locked,target=/var/cache/apt \
   apt-get update -qq && \
   apt-get install --no-install-recommends -y  \
     curl \
     postgresql-client \
   && \
-  rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+  rm -rf /tmp/* /var/tmp/*
 
 # Copy built artifacts: gems, application
 COPY --from=build /usr/local/bundle /usr/local/bundle
