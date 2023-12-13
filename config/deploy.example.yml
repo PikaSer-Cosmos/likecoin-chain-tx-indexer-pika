@@ -9,14 +9,6 @@ servers:
   web:
     hosts:
       - <%= ENV["KAMAL_SERVER_HOST"] %>
-    env:
-      clear:
-        # Make PID file disappear
-        # https://ieftimov.com/posts/docker-compose-stray-pids-rails-beyond/
-        PIDFILE: /tmp/pids/server.pid
-    options:
-      # https://docs.docker.com/engine/reference/run/#tmpfs-mount-tmpfs-filesystems
-      tmpfs: /tmp/pids
   cron:
     hosts:
       - <%= ENV["KAMAL_SERVER_HOST"] %>
