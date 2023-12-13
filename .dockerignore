@@ -40,3 +40,6 @@
 config/deploy.example.yml
 config/deploy.yml
 kamal
+
+# Why include `Dockerfile` into a docker image?
+Dockerfile
