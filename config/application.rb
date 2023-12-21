@@ -92,6 +92,7 @@ module LikecoinChainTxIndexerPika
         :pg_json,
         :batches,
       )
+      Sequel.extension :pg_json_ops
       Sequel.extension :pg_array_ops
       Sequel.extension :named_timezones
       Sequel.database_timezone = :utc

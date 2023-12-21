@@ -45,6 +45,17 @@ module Apps::MainApi::NftClasses::Index
           rel = rel.linked_with_these_nfts_only(Nft::SequelModel.with_owner_only(parsed_params.nft_owner))
         end
 
+        if parsed_params.nft_type_category
+          case parsed_params.nft_type_category
+          when NftTypeCategory::WritingNft
+            rel = rel.as_likerland_writing_nft_only
+          when NftTypeCategory::NftBook
+            rel = rel.as_nft_book_only
+          else
+            raise "Unexpected nft_type_category <#{parsed_params.nft_type_category}>"
+          end
+        end
+
         rel.limit(parsed_params.limit)
       end
     end
@@ -57,6 +68,17 @@ module Apps::MainApi::NftClasses::Index
       ValidParamsContract.new.call(params.to_unsafe_h)
     end
 
+    module NftTypeCategory
+      WritingNft = "writing_nft"
+      NftBook = "nft_book"
+
+      def self.all
+        constants(false).map do |c|
+          const_get(c)
+        end.freeze
+      end
+    end
+
     class ValidParamsContract < Dry::Validation::Contract
       params do
         optional(:created_before).maybe(:string)
@@ -64,6 +86,8 @@ module Apps::MainApi::NftClasses::Index
 
         optional(:iscn_owner).maybe(:string)
         optional(:nft_owner).maybe(:string)
+
+        optional(:nft_type_category).maybe(:string, included_in?: NftTypeCategory.all)
 
         optional(:limit).value(Dry::Schema::Types::Params::Integer, gteq?: 1, lteq?: 1000)
       end
@@ -80,6 +104,8 @@ module Apps::MainApi::NftClasses::Index
 
       attribute? :iscn_owner, Types::String.optional
       attribute? :nft_owner, Types::String.optional
+
+      attribute? :nft_type_category, Types::String.enum(*NftTypeCategory.all).optional
 
       attribute? :limit, Types::Integer.default(1000)
 
