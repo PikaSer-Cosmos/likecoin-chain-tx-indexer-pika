@@ -10,7 +10,7 @@ ARG TARGETOS
 ARG TARGETARCH
 ARG TARGETVARIANT
 
-ARG RUBYGEMS_VERSION=3.5.1
+ARG RUBYGEMS_VERSION=3.5.3
 
 # Rails app lives here
 WORKDIR /rails
@@ -19,6 +19,8 @@ WORKDIR /rails
 ENV RAILS_ENV="production" \
     BUNDLE_DEPLOYMENT="1" \
     BUNDLE_PATH="/usr/local/bundle" \
+    BUNDLE_USER_CACHE="/var/cache/bundle" \
+    BUNDLE_GLOBAL_GEM_CACHE="true" \
     BUNDLE_WITHOUT="development"
 
 RUN \
@@ -45,18 +47,11 @@ RUN \
   apt-get update -qq && \
   apt-get install --no-install-recommends -y build-essential git libpq-dev pkg-config
 
-# Install application gems, slightly outdated for cached later
-# Using mount instead of copying = one less layer
-RUN \
-  --mount=target=.,source=docker/app/gem_cache \
-  MAKE="make --jobs $(nproc)" \
-  bundle install --jobs="$(nproc)" && \
-  rm -rf ~/.bundle/ "${BUNDLE_PATH}"/ruby/*/cache "${BUNDLE_PATH}"/ruby/*/bundler/gems/*/.git
-
 # Install application gems
 # Using mount instead of copying = one less layer
 # Gemfile & Gemfile.lock are still copied later
 RUN \
+  --mount=type=cache,id=bundler-global-cache-$TARGETARCH$TARGETVARIANT,sharing=locked,target=/var/cache/bundle \
   --mount=target=. \
   MAKE="make --jobs $(nproc)" \
   bundle install --jobs="$(nproc)" && \
