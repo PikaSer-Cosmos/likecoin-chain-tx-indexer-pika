@@ -64,3 +64,21 @@ if rails_env == "development"
   # isn't killed by Puma when suspended by a debugger.
   worker_timeout 3600
 end
+
+# region YJIT runtime stats
+
+# Can't use `ENV!`
+if defined?(RubyVM::YJIT.enable) &&
+  ENV["RUBY_YJIT_STATS_ENABLED"] == "true"
+
+  out_of_band do
+    yjit_runtime_stats = RubyVM::YJIT.runtime_stats
+    next if yjit_runtime_stats.nil?
+
+    puts("========== YJIT Runtime Stats ==========")
+    puts(yjit_runtime_stats.slice(:ratio_in_yjit))
+    puts("========== YJIT Runtime Stats ==========")
+  end
+end
+
+# endregion YJIT runtime stats
