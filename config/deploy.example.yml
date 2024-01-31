@@ -9,6 +9,18 @@ servers:
   web:
     hosts:
       - <%= ENV["KAMAL_SERVER_HOST"] %>
+    env:
+      clear:
+        # Update to true to enable YJIT stats (e.g. `ratio_in_yjit`)
+        RUBY_YJIT_STATS_ENABLED: false
+        # `--yjit-disable` disable YJIT (even with YJIT flags passed)
+        # https://github.com/ruby/ruby/blob/ruby_3_3/doc/yjit/yjit.md#command-line-options
+        #
+        # `--yjit-exec-mem-size` = size of the executable memory block to allocate, in MiB
+        # Ideally, `ratio_in_yjit` should be as large as 99% (if available memory allows)
+        # Default value is small so for some apps setting it to a larger value
+        # might be needed to have high enough `ratio_in_yjit`
+        # RUBYOPT: "--yjit-disable --yjit-exec-mem-size=48"
   cron:
     hosts:
       - <%= ENV["KAMAL_SERVER_HOST"] %>

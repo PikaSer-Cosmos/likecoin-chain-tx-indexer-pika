@@ -6,6 +6,8 @@
 # performance.
 if defined? RubyVM::YJIT.enable
   Rails.application.config.after_initialize do
-    RubyVM::YJIT.enable
+    RubyVM::YJIT.enable(
+      stats: ENV["RUBY_YJIT_STATS_ENABLED"] == "true" ? :quiet : false,
+    )
   end
 end
