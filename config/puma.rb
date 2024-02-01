@@ -40,12 +40,10 @@ if rails_env == "production"
   # CPU cores are available. Make sure to set the `WEB_CONCURRENCY` environment
   # variable to match the number of processors.
   require "concurrent-ruby"
-  processors_count = Integer(ENV.fetch("WEB_CONCURRENCY") { Concurrent.physical_processor_count })
-  if processors_count > 1
-    workers processors_count
-  else
-    preload_app!
-  end
+  workers_count = Integer(ENV.fetch("WEB_CONCURRENCY") { Concurrent.physical_processor_count })
+  workers workers_count if workers_count > 1
+
+  preload_app!
 end
 
 # Specifies the `port` that Puma will listen on to receive requests; default is 3000.
