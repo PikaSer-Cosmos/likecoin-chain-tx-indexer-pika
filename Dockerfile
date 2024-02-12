@@ -77,6 +77,7 @@ RUN \
   apt-get install --no-install-recommends -y  \
     curl \
     postgresql-client \
+    libjemalloc2 \
   && \
   rm -rf /tmp/* /var/tmp/*
 
