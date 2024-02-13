@@ -113,9 +113,9 @@ ssh:
 # See example at https://nts.strzibny.name/deploying-rails-single-server-kamal/
 accessories:
   db:
-    image: postgres:16.0
+    image: postgres:16.2
     # If Docker registry is down you can use different container registry
-    # image: public.ecr.aws/docker/library/postgres:16.0
+    # image: public.ecr.aws/docker/library/postgres:16.2
     host: <%= ENV["KAMAL_SERVER_HOST"] %>
     port: 5432
     cmd: postgres -c 'config_file=/etc/postgresql/postgresql.conf'
