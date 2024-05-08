@@ -1,7 +1,7 @@
 # syntax = docker/dockerfile:1
 
 # Make sure RUBY_VERSION matches the Ruby version in .ruby-version and Gemfile
-ARG RUBY_VERSION=3.3.0
+ARG RUBY_VERSION=3.3.1
 FROM public.ecr.aws/docker/library/ruby:$RUBY_VERSION-slim as base
 
 # https://docs.docker.com/engine/reference/builder/#automatic-platform-args-in-the-global-scope
@@ -10,7 +10,7 @@ ARG TARGETOS
 ARG TARGETARCH
 ARG TARGETVARIANT
 
-ARG RUBYGEMS_VERSION="3.5.6"
+ARG RUBYGEMS_VERSION="3.5.10"
 
 # Rails app lives here
 WORKDIR /rails
