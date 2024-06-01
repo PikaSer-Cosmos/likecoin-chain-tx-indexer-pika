@@ -180,7 +180,7 @@ GEM
     google-protobuf (4.26.1-x86_64-linux)
       rake (>= 13)
     http-2-next (1.0.3)
-    httpx (1.2.4)
+    httpx (1.2.5)
       http-2-next (>= 1.0.3)
     i18n (1.14.5)
       concurrent-ruby (~> 1.0)
