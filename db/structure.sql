@@ -2,8 +2,8 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 16.0
--- Dumped by pg_dump version 16.0
+-- Dumped from database version 16.1
+-- Dumped by pg_dump version 16.1
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -82,7 +82,9 @@ CREATE TABLE public.good_job_executions (
     scheduled_at timestamp without time zone,
     finished_at timestamp without time zone,
     error text,
-    error_event integer
+    error_event integer,
+    error_backtrace text[],
+    process_id uuid
 );
 
 
@@ -94,7 +96,8 @@ CREATE TABLE public.good_job_processes (
     id uuid DEFAULT gen_random_uuid() NOT NULL,
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
-    state jsonb
+    state jsonb,
+    lock_type smallint[]
 );
 
 
@@ -136,7 +139,10 @@ CREATE TABLE public.good_jobs (
     is_discrete boolean,
     executions_count integer,
     job_class text,
-    error_event integer
+    error_event integer,
+    labels text[],
+    locked_by_id uuid,
+    locked_at timestamp without time zone
 );
 
 
@@ -218,8 +224,7 @@ CREATE TABLE public.nfts (
     id bigint NOT NULL,
     class_id text,
     nft_id text,
-    uri text,
-    uri_hash text,
+    class_created_at timestamp without time zone,
     owner text,
     created_at timestamp without time zone,
     updated_at timestamp without time zone
@@ -391,6 +396,20 @@ CREATE INDEX index_good_job_executions_on_active_job_id_and_created_at ON public
 
 
 --
+-- Name: index_good_job_executions_on_process_id_and_created_at; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_good_job_executions_on_process_id_and_created_at ON public.good_job_executions USING btree (process_id, created_at);
+
+
+--
+-- Name: index_good_job_jobs_for_candidate_lookup; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_good_job_jobs_for_candidate_lookup ON public.good_jobs USING btree (priority, created_at) WHERE (finished_at IS NULL);
+
+
+--
 -- Name: index_good_jobs_jobs_on_finished_at; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -402,13 +421,6 @@ CREATE INDEX index_good_jobs_jobs_on_finished_at ON public.good_jobs USING btree
 --
 
 CREATE INDEX index_good_jobs_jobs_on_priority_created_at_when_unfinished ON public.good_jobs USING btree (priority, created_at) WHERE (finished_at IS NULL);
-
-
---
--- Name: index_good_jobs_on_active_job_id; Type: INDEX; Schema: public; Owner: -
---
-
-CREATE INDEX index_good_jobs_on_active_job_id ON public.good_jobs USING btree (active_job_id);
 
 
 --
@@ -433,10 +445,38 @@ CREATE INDEX index_good_jobs_on_cron_key_and_created_at ON public.good_jobs USIN
 
 
 --
--- Name: index_good_jobs_on_cron_key_and_cron_at; Type: INDEX; Schema: public; Owner: -
+-- Name: index_good_jobs_on_cron_key_and_created_at_cond; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE UNIQUE INDEX index_good_jobs_on_cron_key_and_cron_at ON public.good_jobs USING btree (cron_key, cron_at);
+CREATE INDEX index_good_jobs_on_cron_key_and_created_at_cond ON public.good_jobs USING btree (cron_key, created_at) WHERE (cron_key IS NOT NULL);
+
+
+--
+-- Name: index_good_jobs_on_cron_key_and_cron_at_cond; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX index_good_jobs_on_cron_key_and_cron_at_cond ON public.good_jobs USING btree (cron_key, cron_at) WHERE (cron_key IS NOT NULL);
+
+
+--
+-- Name: index_good_jobs_on_labels; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_good_jobs_on_labels ON public.good_jobs USING gin (labels) WHERE (labels IS NOT NULL);
+
+
+--
+-- Name: index_good_jobs_on_locked_by_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_good_jobs_on_locked_by_id ON public.good_jobs USING btree (locked_by_id) WHERE (locked_by_id IS NOT NULL);
+
+
+--
+-- Name: index_good_jobs_on_priority_scheduled_at_unfinished_unlocked; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_good_jobs_on_priority_scheduled_at_unfinished_unlocked ON public.good_jobs USING btree (priority, scheduled_at) WHERE ((finished_at IS NULL) AND (locked_by_id IS NULL));
 
 
 --
@@ -461,13 +501,6 @@ CREATE INDEX iscn_content_fingerprints_index ON public.iscn USING gin (content_f
 
 
 --
--- Name: iscn_iscn_id_prefix_version_index; Type: INDEX; Schema: public; Owner: -
---
-
-CREATE INDEX iscn_iscn_id_prefix_version_index ON public.iscn USING btree (iscn_id_prefix, version);
-
-
---
 -- Name: iscn_keywords_index; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -485,14 +518,7 @@ CREATE INDEX iscn_owner_index ON public.iscn USING btree (owner);
 -- Name: nft_classes_class_created_at_index; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX nft_classes_class_created_at_index ON public.nft_classes USING btree (class_created_at) WHERE (class_created_at IS NOT NULL);
-
-
---
--- Name: nft_classes_class_id_index; Type: INDEX; Schema: public; Owner: -
---
-
-CREATE INDEX nft_classes_class_id_index ON public.nft_classes USING btree (class_id);
+CREATE INDEX nft_classes_class_created_at_index ON public.nft_classes USING btree (class_created_at);
 
 
 --
@@ -503,10 +529,10 @@ CREATE INDEX nft_classes_parent_iscn_id_prefix_index ON public.nft_classes USING
 
 
 --
--- Name: nfts_class_id_index; Type: INDEX; Schema: public; Owner: -
+-- Name: nfts_class_created_at_index; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX nfts_class_id_index ON public.nfts USING btree (class_id);
+CREATE INDEX nfts_class_created_at_index ON public.nfts USING btree (class_created_at);
 
 
 --
@@ -514,6 +540,13 @@ CREATE INDEX nfts_class_id_index ON public.nfts USING btree (class_id);
 --
 
 CREATE INDEX nfts_created_at_index ON public.nfts USING btree (created_at);
+
+
+--
+-- Name: nfts_nft_id_index; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX nfts_nft_id_index ON public.nfts USING btree (nft_id);
 
 
 --
@@ -539,3 +572,4 @@ INSERT INTO "schema_migrations" ("filename") VALUES ('20231017090127_create_init
 INSERT INTO "schema_migrations" ("filename") VALUES ('20231101063614_create_iscn.rb');
 INSERT INTO "schema_migrations" ("filename") VALUES ('20231102020525_create_nfts.rb');
 INSERT INTO "schema_migrations" ("filename") VALUES ('20231103102518_create_good_jobs.rb');
+INSERT INTO "schema_migrations" ("filename") VALUES ('20240604093700_update_good_jobs_20240604.rb');
