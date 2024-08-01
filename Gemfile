@@ -8,7 +8,7 @@ ruby ">= 3.3.0"
 gem "rails", "~> 7.1.3"
 
 # Use postgresql as the database for Active Record
-gem "pg", "~> 1.1"
+gem "pg", "~> 1.5"
 # A performance dashboard for Postgres
 gem "pghero", ">= 3.3.4"
 # PgHero can suggest indexes to add.
