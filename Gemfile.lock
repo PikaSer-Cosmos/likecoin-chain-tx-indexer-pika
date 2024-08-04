@@ -360,7 +360,7 @@ DEPENDENCIES
   dry-validation
   env_bang-rails (>= 1.0.0)
   faraday (>= 2.0.1)
-  good_job
+  good_job (~> 3.29)
   httpx (>= 1.0.2)
   marginalia (>= 1.5.0)
   memo_wise (>= 1.7.0)

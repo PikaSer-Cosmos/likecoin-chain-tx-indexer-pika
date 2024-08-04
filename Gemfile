@@ -68,7 +68,7 @@ gem "oj",">= 3.14.3"
 gem "clockwork"
 
 # BG Jobs
-gem "good_job"
+gem "good_job", "~> 3.29"
 
 ### Assets
 gem 'sprockets-rails', '>= 3.4.2', require: 'sprockets/railtie'
