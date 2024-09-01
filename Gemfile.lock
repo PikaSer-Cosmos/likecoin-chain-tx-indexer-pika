@@ -153,10 +153,10 @@ GEM
     erubi (1.13.0)
     et-orbi (1.2.11)
       tzinfo
-    faraday (2.10.1)
-      faraday-net_http (>= 2.0, < 3.2)
+    faraday (2.11.0)
+      faraday-net_http (>= 2.0, < 3.4)
       logger
-    faraday-net_http (3.1.1)
+    faraday-net_http (3.3.0)
       net-http
     fugit (1.11.1)
       et-orbi (~> 1, >= 1.2.11)
@@ -323,7 +323,7 @@ GEM
       activesupport (>= 5.0.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
-    uri (0.13.0)
+    uri (0.13.1)
     useragent (0.16.10)
     web-console (4.2.1)
       actionview (>= 6.0.0)
