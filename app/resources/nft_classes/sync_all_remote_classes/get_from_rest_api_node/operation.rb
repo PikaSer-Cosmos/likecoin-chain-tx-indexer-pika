@@ -112,7 +112,7 @@ module NftClasses::SyncAllRemoteClasses::GetFromRestApiNode
         http_client.get("/cosmos/nft/v1beta1/classes")
       end
 
-      Oj.load(response.body)
+      Oj.load(response.body, mode: :compat)
     end
 
     memo_wise def http_client
