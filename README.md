@@ -28,20 +28,25 @@ Mostly recent enough ruby version which is `>= 3.2.2`
 - `overmind s`
 
 ### Configuration
-- Copy `.env.example` to `.env`
-- Edit `.env` to suit you (some values would be used for deployment, and shared with app on production)
+- Copy `.kamal/secrets.example` to `.kamal/secrets`
+- Edit `.kamal/secrets` to suit you (some values would be used for deployment, and shared with app on production)
 
 
 ## How to run remotely (deploy)
 
 ### Preparation
 
+#### News: Kamal updated from 1.x to 2.x (2024-10-08)
+If you use Kamal 1.x before to deploy this app, check upgrade guides: (example files updated to be for 2.x)
+- https://kamal-deploy.org/docs/upgrading/overview/
+- https://nts.strzibny.name/upgrading-to-kamal-2/
+
 #### Local
 - Install [Kamal](https://kamal-deploy.org) (probably just `gem install kamal`)
 - Prepare container registry like [Docker Hub](https://www.docker.com/products/docker-hub/), [GitHub Container Registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry) or host your own
 - Copy `config/deploy.example.yml` to `config/deploy.yml`
 - Update `config/deploy.yml` to suit yourself (For host IP you need your remote host setup first)
-- Review `.env` again (which might affects deploy settings and/or app on production)
+- Review `.kamal/secrets` again (which might affects deploy settings and/or app on production)
 
 #### Remote
 - Get a logical host you can SSH into (no one care if it's physical or VM)
