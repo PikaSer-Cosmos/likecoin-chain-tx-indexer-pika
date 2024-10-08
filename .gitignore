@@ -37,3 +37,6 @@
 
 # Kamal deploy config
 /config/deploy.yml
+
+# Kamal deploy secrets
+.kamal/secrets
