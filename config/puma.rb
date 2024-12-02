@@ -30,13 +30,6 @@ rails_env = ENV.fetch("RAILS_ENV", "development")
 threads_count = ENV.fetch("RAILS_MAX_THREADS", 3)
 threads threads_count, threads_count
 
-# Specifies that the worker count should equal the number of processors in production.
-if ENV["RAILS_ENV"] == "production"
-  require "concurrent-ruby"
-  worker_count = Integer(ENV.fetch("WEB_CONCURRENCY") { Concurrent.physical_processor_count })
-  workers worker_count if worker_count > 1
-end
-
 if rails_env == "production"
   # If you are running more than 1 thread per process, the workers count
   # should be equal to the number of processors (CPU cores) in production.
@@ -45,7 +38,8 @@ if rails_env == "production"
   # CPU cores are available. Make sure to set the `WEB_CONCURRENCY` environment
   # variable to match the number of processors.
   require "concurrent-ruby"
-  workers_count = Integer(ENV.fetch("WEB_CONCURRENCY") { Concurrent.physical_processor_count })
+  require "concurrent/utility/processor_counter"
+  workers_count = Integer(ENV.fetch("WEB_CONCURRENCY") { ::Concurrent.available_processor_count })
   workers workers_count if workers_count > 1
 
   preload_app!

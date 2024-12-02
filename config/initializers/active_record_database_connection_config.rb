@@ -14,7 +14,8 @@ if defined?(ActiveRecord::Base)
     elsif env_value.zero?
       # Probably puma/web
       # https://judoscale.com/guides/active-record-connection-pool
-      web_concurrency = Integer(ENV.fetch("WEB_CONCURRENCY") { Concurrent.physical_processor_count })
+      require "concurrent/utility/processor_counter"
+      web_concurrency = Integer(ENV.fetch("WEB_CONCURRENCY") { ::Concurrent.available_processor_count })
       rails_max_threads = Integer(ENV.fetch("RAILS_MAX_THREADS", 3))
       # Plus 6 as buffer, not tested
       env_value = (web_concurrency * rails_max_threads) + 6
