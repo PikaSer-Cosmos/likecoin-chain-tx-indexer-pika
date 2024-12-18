@@ -51,6 +51,20 @@ port ENV.fetch("PORT", 3000)
 # Specifies the `environment` that Puma will run in.
 environment rails_env
 
+# region Fork-Worker Cluster Mode
+
+# Puma 5 introduces an experimental new cluster-mode configuration option, fork_worker (--fork-worker from the CLI).
+# This mode causes Puma to fork additional workers from worker 0, instead of directly from the master process
+# https://github.com/puma/puma/blob/master/docs/fork_worker.md
+fork_worker
+
+on_refork do
+  # Run GC before forking
+  3.times {GC.start}
+end
+
+# endregion Fork-Worker Cluster Mode
+
 # Allow puma to be restarted by `bin/rails restart` command.
 plugin :tmp_restart
 
