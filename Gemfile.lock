@@ -108,9 +108,9 @@ GEM
     debug (1.9.2)
       irb (~> 1.10)
       reline (>= 0.3.8)
-    dotenv (3.1.6)
-    dotenv-rails (3.1.6)
-      dotenv (= 3.1.6)
+    dotenv (3.1.7)
+    dotenv-rails (3.1.7)
+      dotenv (= 3.1.7)
       railties (>= 6.1)
     drb (2.2.1)
     dry-configurable (1.2.0)
@@ -259,7 +259,7 @@ GEM
       google-protobuf (>= 3.25.3)
     pghero (3.6.1)
       activerecord (>= 6.1)
-    psych (5.2.1)
+    psych (5.2.2)
       date
       stringio
     public_suffix (6.0.1)
@@ -415,4 +415,4 @@ RUBY VERSION
    ruby 3.3.1p55
 
 BUNDLED WITH
-   2.6.0
+   2.6.1
