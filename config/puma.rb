@@ -65,6 +65,24 @@ end
 
 # endregion Fork-Worker Cluster Mode
 
+# region Out of Band Garbage Collection
+
+# Available since 3.4
+oobgc_available = GC.respond_to?(:config)
+if oobgc_available
+  on_worker_boot do
+    GC.config(rgengc_allow_full_mark: false)
+  end
+
+  out_of_band do
+    if GC.latest_gc_info(:need_major_by)
+      GC.start
+    end
+  end
+end
+
+# endregion Out of Band Garbage Collection
+
 # Allow puma to be restarted by `bin/rails restart` command.
 plugin :tmp_restart
 
