@@ -98,7 +98,7 @@ GEM
       activesupport
       tzinfo
     concurrent-ruby (1.3.4)
-    connection_pool (2.4.1)
+    connection_pool (2.5.0)
     contracted_value (0.1.3)
       contracts (~> 0.17)
       ice_nine
@@ -178,13 +178,13 @@ GEM
       fugit (>= 1.1)
       railties (>= 6.0.0)
       thor (>= 0.14.1)
-    google-protobuf (4.29.2-aarch64-linux)
+    google-protobuf (4.29.3-aarch64-linux)
       bigdecimal
       rake (>= 13)
-    google-protobuf (4.29.2-arm64-darwin)
+    google-protobuf (4.29.3-arm64-darwin)
       bigdecimal
       rake (>= 13)
-    google-protobuf (4.29.2-x86_64-linux)
+    google-protobuf (4.29.3-x86_64-linux)
       bigdecimal
       rake (>= 13)
     http-2 (1.0.2)
@@ -439,7 +439,7 @@ CHECKSUMS
   capybara (3.40.0) sha256=42dba720578ea1ca65fd7a41d163dd368502c191804558f6e0f71b391054aeef
   clockwork (3.0.2) sha256=7ee3dcf0d2f4361e1268f5a85c04af8b27fa9e421f9a92e8b149989600861917
   concurrent-ruby (1.3.4) sha256=d4aa926339b0a86b5b5054a0a8c580163e6f5dcbdfd0f4bb916b1a2570731c32
-  connection_pool (2.4.1) sha256=0f40cf997091f1f04ff66da67eabd61a9fe0d4928b9a3645228532512fab62f4
+  connection_pool (2.5.0) sha256=233b92f8d38e038c1349ccea65dd3772727d669d6d2e71f9897c8bf5cd53ebfc
   contracted_value (0.1.3) sha256=6f0bc43d1894e711d80917b0ac735fd846b17bd19237356603a577d0a17af3d7
   contracts (0.17.2) sha256=3baebb3aea27537388e9f6e13d589414f0d187cda0f5924a90ca756a39dd94e9
   crass (1.0.6) sha256=dc516022a56e7b3b156099abc81b6d2b08ea1ed12676ac7a5657617f012bd45d
@@ -467,9 +467,9 @@ CHECKSUMS
   fugit (1.11.1) sha256=e89485e7be22226d8e9c6da411664d0660284b4b1c08cacb540f505907869868
   globalid (1.2.1) sha256=70bf76711871f843dbba72beb8613229a49429d1866828476f9c9d6ccc327ce9
   good_job (3.99.1) sha256=7d3869d8a8ee8ef7048fee5d746f41c21987b7822c20038a2f773036bef0830a
-  google-protobuf (4.29.2-aarch64-linux) sha256=bca9ad4c89f3b583b022393ac423bb5783f8d1881ad74f05a377b0c0ad0e2522
-  google-protobuf (4.29.2-arm64-darwin) sha256=66bd1a7fcf2b41701bedc2f68494aed5af83f63978fea202c58b3d16c8ce5a37
-  google-protobuf (4.29.2-x86_64-linux) sha256=5335a35189eadbcedf9fe15f1ca0ad01b1cb421c38492528d7d48715aacba8dc
+  google-protobuf (4.29.3-aarch64-linux) sha256=2b670a80eac7377f6055a48caa8db52561195a80718e0ea8289e8c8aeb4b2502
+  google-protobuf (4.29.3-arm64-darwin) sha256=c0fc9a33e674d08a72f12565e27b888d3c22cb03a20731e83c015fc58719a407
+  google-protobuf (4.29.3-x86_64-linux) sha256=4ac194b06c59559457ce1d1d57d03760b50e009dbcfe5ef065a1af48ce4a2d0e
   http-2 (1.0.2) sha256=607004ffec28fcb5c392cccaef22d9ffe5b5575fc859ab665fb426a14cf3a83c
   httpx (1.4.0) sha256=5a6c849a823cea443ee182039e617db0e9071efb87c612b9a1ba7abdc151f837
   i18n (1.14.6) sha256=dc229a74f5d181f09942dd60ab5d6e667f7392c4ee826f35096db36d1fe3614c
