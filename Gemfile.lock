@@ -147,7 +147,7 @@ GEM
       dry-inflector (~> 1.0)
       dry-logic (~> 1.4)
       zeitwerk (~> 2.6)
-    dry-validation (1.11.0)
+    dry-validation (1.11.1)
       concurrent-ruby (~> 1.0)
       dry-core (~> 1.1)
       dry-initializer (~> 3.2)
@@ -456,7 +456,7 @@ CHECKSUMS
   dry-schema (1.14.0) sha256=ec40615e122040597cbb2f286b237f59a8f1f558e0071250788a53c125f742a9
   dry-struct (1.7.1) sha256=4200913a24a36932d531d726a00067f727b4bd03d511d267f58ba3a86bee53ae
   dry-types (1.8.2) sha256=c84e9ada69419c727c3b12e191e0ed7d2c6d58d040d55e79ea16e0ebf8b3ec0f
-  dry-validation (1.11.0) sha256=2f0d54e08bbaee8313497189a88d4cb39d517b5644b1b73e7273a5a5bc771493
+  dry-validation (1.11.1) sha256=70900bb5a2d911c8aab566d3e360c6bff389b8bf92ea8e04885ce51c41ff8085
   ed25519 (1.3.0) sha256=514a5584f84d39daac568a17ec93a4e7261e140c52c562ed8c382c18456e627d
   env_bang (1.0.0) sha256=30998d7ac7c835ed7c4b6c3b6fd536de04923dea5fa2f3a89084fce22c5bd226
   env_bang-rails (1.0.0) sha256=7bfeda18f03e1039d36abc7d5ffb37c641d41f2e183a3f2081bdaeba9496532d
