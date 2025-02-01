@@ -316,7 +316,7 @@ GEM
     rexml (3.4.0)
     rubyzip (2.4.1)
     securerandom (0.4.1)
-    selenium-webdriver (4.27.0)
+    selenium-webdriver (4.28.0)
       base64 (~> 0.2)
       logger (~> 1.4)
       rexml (~> 3.2, >= 3.2.5)
@@ -527,7 +527,7 @@ CHECKSUMS
   rexml (3.4.0) sha256=efbea1efba7fa151158e0ee1e643525834da2d8eb4cf744aa68f6480bc9804b2
   rubyzip (2.4.1) sha256=8577c88edc1fde8935eb91064c5cb1aef9ad5494b940cf19c775ee833e075615
   securerandom (0.4.1) sha256=cc5193d414a4341b6e225f0cb4446aceca8e50d5e1888743fac16987638ea0b1
-  selenium-webdriver (4.27.0) sha256=8821f4ad60b935cfcdc5954c0a6642d894e936250aece8bf37a6fcbebe5eb6e0
+  selenium-webdriver (4.28.0) sha256=4cf7722062c3691f9c616890d68d3715d4f2e2e4fb0bc0ee5441a4dc1f5a89d3
   sequel (5.88.0) sha256=8e035e2f8238d065207de56ec4032daf025dd9c876fcfb4849e85f5dcb570648
   sequel-annotate (1.7.0) sha256=83f610615aab4c3111d6aafaf6b07256431e327848dc62424ade872f0dd42fcd
   sequel-batches (2.0.3) sha256=4ca4bfd585eab01ed45e455f4137166ed82028d3b8ec94ca051aac6e0b501aff
