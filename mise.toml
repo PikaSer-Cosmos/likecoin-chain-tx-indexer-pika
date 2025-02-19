@@ -1,0 +1,4 @@
+# If you need local overrides copy this file into `mise.local.toml`
+# https://mise.jdx.dev/configuration.html#mise-toml
+[tools]
+ruby = '3.4'
