@@ -76,7 +76,6 @@ GEM
       public_suffix (>= 2.0.2, < 7.0)
     base64 (0.2.0)
     bcrypt_pbkdf (1.1.1)
-    bcrypt_pbkdf (1.1.1-arm64-darwin)
     bech32 (1.4.2)
       thor (>= 1.1.0)
     benchmark (0.4.0)
@@ -251,7 +250,7 @@ GEM
       racc (~> 1.4)
     nokogiri (1.18.3-x86_64-linux-gnu)
       racc (~> 1.4)
-    oj (3.16.9)
+    oj (3.16.10)
       bigdecimal (>= 3.0)
       ostruct (>= 0.2)
     ostruct (0.6.1)
@@ -320,7 +319,7 @@ GEM
     rexml (3.4.1)
     rubyzip (2.4.1)
     securerandom (0.4.1)
-    selenium-webdriver (4.28.0)
+    selenium-webdriver (4.29.1)
       base64 (~> 0.2)
       logger (~> 1.4)
       rexml (~> 3.2, >= 3.2.5)
@@ -351,7 +350,7 @@ GEM
       net-sftp (>= 2.1.2)
       net-ssh (>= 2.8.0)
       ostruct
-    stringio (3.1.3)
+    stringio (3.1.5)
     thor (1.3.2)
     timeout (0.4.3)
     turbostreamer (1.11.0)
@@ -434,7 +433,6 @@ CHECKSUMS
   addressable (2.8.7) sha256=462986537cf3735ab5f3c0f557f14155d778f4b43ea4f485a9deb9c8f7c58232
   base64 (0.2.0) sha256=0f25e9b21a02a0cc0cea8ef92b2041035d39350946e8789c562b2d1a3da01507
   bcrypt_pbkdf (1.1.1) sha256=2f9077dde837d1f0dd2eb0f9e5327c6871c68ebc8eba88870fb6b7956e1e2b13
-  bcrypt_pbkdf (1.1.1-arm64-darwin) sha256=f35a468372a182b363086d810f6f7ee62d6ea55efbf04eb2374290c30ee4c7ef
   bech32 (1.4.2) sha256=e4ac6ca89386f5b945af4bae265b752b9dd31fdb05228f2ecd4c6039fc55bc89
   benchmark (0.4.0) sha256=0f12f8c495545e3710c3e4f0480f63f06b4c842cc94cec7f33a956f5180e874a
   bigdecimal (3.1.9) sha256=2ffc742031521ad69c2dfc815a98e426a230a3d22aeac1995826a75dabfad8cc
@@ -505,7 +503,7 @@ CHECKSUMS
   nokogiri (1.18.3-aarch64-linux-gnu) sha256=cab20305133078a8f6b60cf96311b48319175038cc7772e5ec586ff624cb7838
   nokogiri (1.18.3-arm64-darwin) sha256=ce088965cd424b8e752d82087dcf017069d55791f157098ed1f671d966857610
   nokogiri (1.18.3-x86_64-linux-gnu) sha256=3c7ad5cee39855ed9c746065f39b584b9fd2aaff61df02d0f85ba8d671bbe497
-  oj (3.16.9) sha256=6fc5c153edd88a723e8d4dd3068d3f66faab9ba28a063b4de6d1e5d0b65a3324
+  oj (3.16.10) sha256=7f26bed974e331e16d579b470b0865010757f6fe6ee30ea9b67df653fbe13d7c
   ostruct (0.6.1) sha256=09a3fb7ecc1fa4039f25418cc05ae9c82bd520472c5c6a6f515f03e4988cb817
   parallel (1.26.3) sha256=d86babb7a2b814be9f4b81587bf0b6ce2da7d45969fab24d8ae4bf2bb4d4c7ef
   pg (1.5.9) sha256=761efbdf73b66516f0c26fcbe6515dc7500c3f0aa1a1b853feae245433c64fdc
@@ -534,7 +532,7 @@ CHECKSUMS
   rexml (3.4.1) sha256=c74527a9a0a04b4ec31dbe0dc4ed6004b960af943d8db42e539edde3a871abca
   rubyzip (2.4.1) sha256=8577c88edc1fde8935eb91064c5cb1aef9ad5494b940cf19c775ee833e075615
   securerandom (0.4.1) sha256=cc5193d414a4341b6e225f0cb4446aceca8e50d5e1888743fac16987638ea0b1
-  selenium-webdriver (4.28.0) sha256=4cf7722062c3691f9c616890d68d3715d4f2e2e4fb0bc0ee5441a4dc1f5a89d3
+  selenium-webdriver (4.29.1) sha256=0a7fe53cc4d2c515adbb89e115c6e786c64e9b98f85939d21071c6e32883a146
   sequel (5.89.0) sha256=5df6064975e6ba5c92f3321b61c8300f4f710f69474e3f7dae78110df55cf495
   sequel-annotate (1.7.0) sha256=83f610615aab4c3111d6aafaf6b07256431e327848dc62424ade872f0dd42fcd
   sequel-batches (2.0.3) sha256=4ca4bfd585eab01ed45e455f4137166ed82028d3b8ec94ca051aac6e0b501aff
@@ -542,7 +540,7 @@ CHECKSUMS
   sprockets (4.2.1) sha256=951b13dd2f2fcae840a7184722689a803e0ff9d2702d902bd844b196da773f97
   sprockets-rails (3.5.2) sha256=a9e88e6ce9f8c912d349aa5401509165ec42326baf9e942a85de4b76dbc4119e
   sshkit (1.24.0) sha256=9597c1f984778ae9742f2dc839778d57a6a2efb868107046575c52ac7c628e6c
-  stringio (3.1.3) sha256=1eedb8369ee99a9a0edfdacea95c72d647feb8ce844427c150bd641e1797abc8
+  stringio (3.1.5) sha256=bca92461515a131535743bc81d5559fa1de7d80cff9a654d6c0af6f9f27e35c8
   thor (1.3.2) sha256=eef0293b9e24158ccad7ab383ae83534b7ad4ed99c09f96f1a6b036550abbeda
   timeout (0.4.3) sha256=9509f079b2b55fe4236d79633bd75e34c1c1e7e3fb4b56cb5fda61f80a0fe30e
   turbostreamer (1.11.0) sha256=41bd03464424326ccb0c0ae2adb36c4eae7f217552d1360879b1c259cd2a8afb
@@ -557,7 +555,7 @@ CHECKSUMS
   zeitwerk (2.7.2) sha256=842e067cb11eb923d747249badfb5fcdc9652d6f20a1f06453317920fdcd4673
 
 RUBY VERSION
-   ruby 3.3.1p55
+   ruby 3.4.2p28
 
 BUNDLED WITH
-   2.6.4
+   2.6.5
