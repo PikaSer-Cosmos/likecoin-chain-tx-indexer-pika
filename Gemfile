@@ -27,6 +27,8 @@ gem "sequel-annotate", ">= 1.7.0", group: :development
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
+# Rack::Timeout enhancements for Rails
+gem "slowpoke"
 
 # CORS
 gem "rack-cors"
