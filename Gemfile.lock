@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/toregeschliman/puma.git
+  revision: f9feadf99c4b565a343f14e3594bf8db88dfa6d2
+  branch: mold-worker-dogfood-final
+  specs:
+    puma (6.6.0)
+      nio4r (~> 2.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -267,8 +275,6 @@ GEM
       date
       stringio
     public_suffix (6.0.1)
-    puma (6.6.0)
-      nio4r (~> 2.0)
     raabro (1.4.0)
     racc (1.8.1)
     rack (3.1.12)
@@ -409,7 +415,7 @@ DEPENDENCIES
   pg (~> 1.5)
   pg_query (>= 2)
   pghero (>= 3.3.4)
-  puma (>= 5.0)
+  puma (>= 6.6.0, < 7)!
   rack-cors
   rails (~> 8.0.0)
   selenium-webdriver
@@ -519,7 +525,7 @@ CHECKSUMS
   prettyprint (0.2.0) sha256=2bc9e15581a94742064a3cc8b0fb9d45aae3d03a1baa6ef80922627a0766f193
   psych (5.2.3) sha256=84a54bb952d14604fea22d99938348814678782f58b12648fcdfa4d2fce859ee
   public_suffix (6.0.1) sha256=61d44e1cab5cbbbe5b31068481cf16976dd0dc1b6b07bd95617ef8c5e3e00c6f
-  puma (6.6.0) sha256=f25c06873eb3d5de5f0a4ebc783acc81a4ccfe580c760cfe323497798018ad87
+  puma (6.6.0)
   raabro (1.4.0) sha256=d4fa9ff5172391edb92b242eed8be802d1934b1464061ae5e70d80962c5da882
   racc (1.8.1) sha256=4a7f6929691dbec8b5209a0b373bc2614882b55fc5d2e447a21aaa691303d62f
   rack (3.1.12) sha256=00d83055c89273eb13679ab562767b8826955aa6c4371d7d161deb975c50c540

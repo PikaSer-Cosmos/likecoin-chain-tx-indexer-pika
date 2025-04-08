@@ -26,7 +26,7 @@ gem "sequel-batches", ">= 2.0.2"
 gem "sequel-annotate", ">= 1.7.0", group: :development
 
 # Use the Puma web server [https://github.com/puma/puma]
-gem "puma", ">= 5.0"
+gem "puma", ">= 6.6.0", "< 7", require: false, git: "https://github.com/toregeschliman/puma.git", branch: "mold-worker-dogfood-final"
 # Rack::Timeout enhancements for Rails
 gem "slowpoke"
 

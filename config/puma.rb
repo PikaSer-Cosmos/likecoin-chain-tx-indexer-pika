@@ -53,23 +53,14 @@ environment rails_env
 
 # region Fork-Worker Cluster Mode
 
-begin
-  require "slowpoke/version"
-  # If `slowpoke` exists and probably enabled
-  # Worker processing killing is enabled and `fork_worker` should NOT be used
-  # https://github.com/puma/puma/issues/3596
-  $stdout.puts("Slowpoke detected, fork_worker disabled.")
-  fork_worker(0)
-rescue LoadError
-  # Puma 5 introduces an experimental new cluster-mode configuration option, fork_worker (--fork-worker from the CLI).
-  # This mode causes Puma to fork additional workers from worker 0, instead of directly from the master process
-  # https://github.com/puma/puma/blob/master/docs/fork_worker.md
-  fork_worker
+# Puma 5 introduces an experimental new cluster-mode configuration option, fork_worker (--fork-worker from the CLI).
+# This mode causes Puma to fork additional workers from worker 0, instead of directly from the master process
+# https://github.com/puma/puma/blob/master/docs/fork_worker.md
+mold_worker(400, 800, 1600, 3200)
 
-  on_refork do
-    # Run GC before forking
-    3.times {GC.start}
-  end
+on_mold_promotion do
+  # Run GC before forking
+  3.times {GC.start}
 end
 
 # endregion Fork-Worker Cluster Mode
