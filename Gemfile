@@ -74,7 +74,7 @@ gem "good_job", "~> 3.29"
 
 ### Assets
 gem 'sprockets-rails', '>= 3.4.2', require: 'sprockets/railtie'
-gem 'sprockets', '~> 4.0'
+gem 'sprockets', '~> 4.2'
 
 # https://github.com/azuchi/bech32rb
 gem "bech32"
