@@ -46,7 +46,7 @@ RUN \
   --mount=type=cache,id=apt-package-lists-$TARGETARCH$TARGETVARIANT,sharing=locked,target=/var/lib/apt/lists \
   --mount=type=cache,id=apt-cache-$TARGETARCH$TARGETVARIANT,sharing=locked,target=/var/cache/apt \
   apt-get update -qq && \
-  apt-get install --no-install-recommends -y build-essential git libpq-dev pkg-config
+  apt-get install --no-install-recommends -y build-essential git libpq-dev pkg-config libyaml-dev
 
 # Install application gems
 # Using mount instead of copying = one less layer
