@@ -110,7 +110,7 @@ group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 
-  gem "kamal", "~> 2.3"
+  gem "kamal", "~> 2.6"
 
 end
 

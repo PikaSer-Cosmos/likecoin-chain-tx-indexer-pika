@@ -207,13 +207,13 @@ GEM
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
     json (2.11.3)
-    kamal (2.5.3)
+    kamal (2.6.1)
       activesupport (>= 7.0)
       base64 (~> 0.2)
       bcrypt_pbkdf (~> 1.0)
       concurrent-ruby (~> 1.2)
       dotenv (~> 3.1)
-      ed25519 (~> 1.2)
+      ed25519 (~> 1.4)
       net-ssh (~> 7.3)
       sshkit (>= 1.23.0, < 2.0)
       thor (~> 1.3)
@@ -410,7 +410,7 @@ DEPENDENCIES
   faraday (>= 2.0.1)
   good_job (~> 3.29)
   httpx (>= 1.0.2)
-  kamal (~> 2.3)
+  kamal (~> 2.6)
   marginalia (>= 1.5.0)
   memo_wise (>= 1.7.0)
   oj (>= 3.14.3)
@@ -496,7 +496,7 @@ CHECKSUMS
   io-console (0.8.0) sha256=cd6a9facbc69871d69b2cb8b926fc6ea7ef06f06e505e81a64f14a470fddefa2
   irb (1.15.2) sha256=222f32952e278da34b58ffe45e8634bf4afc2dc7aa9da23fed67e581aa50fdba
   json (2.11.3) sha256=9a10f658a2de67c0eb837eb795dd48132ce797c403e52b5ebef87dcdc7f9ccc1
-  kamal (2.5.3) sha256=06f9e5536e710045da73cee5f0d8b088fd40d5613cbb36abcaa88d4c8fe23a6c
+  kamal (2.6.1) sha256=1fc4a95d5a483b4bb49c1745e52f1e1f8c0829483e63903dc4f9a6148bf5652a
   logger (1.7.0) sha256=196edec7cc44b66cfb40f9755ce11b392f21f7967696af15d274dde7edff0203
   loofah (2.24.1) sha256=655a30842b70ec476410b347ab1cd2a5b92da46a19044357bbd9f401b009a337
   mail (2.8.1) sha256=ec3b9fadcf2b3755c78785cb17bc9a0ca9ee9857108a64b6f5cfc9c0b5bfc9ad
