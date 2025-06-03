@@ -186,17 +186,17 @@ GEM
       fugit (>= 1.1)
       railties (>= 6.0.0)
       thor (>= 0.14.1)
-    google-protobuf (4.30.2-aarch64-linux)
+    google-protobuf (4.31.1-aarch64-linux-gnu)
       bigdecimal
       rake (>= 13)
-    google-protobuf (4.30.2-arm64-darwin)
+    google-protobuf (4.31.1-arm64-darwin)
       bigdecimal
       rake (>= 13)
-    google-protobuf (4.30.2-x86_64-linux)
+    google-protobuf (4.31.1-x86_64-linux-gnu)
       bigdecimal
       rake (>= 13)
     http-2 (1.1.1)
-    httpx (1.4.4)
+    httpx (1.5.0)
       http-2 (>= 1.0.0)
     i18n (1.14.7)
       concurrent-ruby (~> 1.0)
@@ -206,7 +206,7 @@ GEM
       pp (>= 0.6.0)
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
-    json (2.11.3)
+    json (2.12.2)
     kamal (2.6.1)
       activesupport (>= 7.0)
       base64 (~> 0.2)
@@ -259,7 +259,7 @@ GEM
       racc (~> 1.4)
     nokogiri (1.18.8-x86_64-linux-gnu)
       racc (~> 1.4)
-    oj (3.16.10)
+    oj (3.16.11)
       bigdecimal (>= 3.0)
       ostruct (>= 0.2)
     ostruct (0.6.1)
@@ -267,8 +267,8 @@ GEM
     pg (1.5.9)
     pg_query (6.1.0)
       google-protobuf (>= 3.25.3)
-    pghero (3.6.2)
-      activerecord (>= 6.1)
+    pghero (3.7.0)
+      activerecord (>= 7.1)
     pp (0.6.2)
       prettyprint
     prettyprint (0.2.0)
@@ -329,13 +329,13 @@ GEM
     rexml (3.4.1)
     rubyzip (2.4.1)
     securerandom (0.4.1)
-    selenium-webdriver (4.32.0)
+    selenium-webdriver (4.33.0)
       base64 (~> 0.2)
       logger (~> 1.4)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
-    sequel (5.92.0)
+    sequel (5.93.0)
       bigdecimal
     sequel-annotate (1.7.0)
       sequel (>= 4)
@@ -380,7 +380,7 @@ GEM
       bindex (>= 0.4.0)
       railties (>= 6.0.0)
     websocket (1.2.11)
-    websocket-driver (0.7.7)
+    websocket-driver (0.8.0)
       base64
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
@@ -487,16 +487,16 @@ CHECKSUMS
   fugit (1.11.1) sha256=e89485e7be22226d8e9c6da411664d0660284b4b1c08cacb540f505907869868
   globalid (1.2.1) sha256=70bf76711871f843dbba72beb8613229a49429d1866828476f9c9d6ccc327ce9
   good_job (3.99.1) sha256=7d3869d8a8ee8ef7048fee5d746f41c21987b7822c20038a2f773036bef0830a
-  google-protobuf (4.30.2-aarch64-linux) sha256=a99d2f31bc2bebf4994b7cd2dd4c1d3ef28a0acc8f1b37be236982f7dc21bd8d
-  google-protobuf (4.30.2-arm64-darwin) sha256=c66a93ceef100fb2390615e76310491cc6e1944f7b9cda2cf1e3279887f817d1
-  google-protobuf (4.30.2-x86_64-linux) sha256=c96993d98732ea185d98279f6c76e130eb9595437dda39610b3398c9e348518e
+  google-protobuf (4.31.1-aarch64-linux-gnu) sha256=d5b8268b2e07776b15a73ed96ca416eab771821b162b239dbdbfb2c85e2d17e5
+  google-protobuf (4.31.1-arm64-darwin) sha256=177ca61d254e4516d42997aa9d3127fd5e04ffc60c4ad333b1515ded6d7af89d
+  google-protobuf (4.31.1-x86_64-linux-gnu) sha256=7def6dbf996dab289dd541a3ee8b201e2c3e35911c274325ad9b483ebffb6dcd
   http-2 (1.1.1) sha256=1141a5a03c2f4e6b8d2fa62394de581e1ff6387711cd7ed577212e9d95562bba
-  httpx (1.4.4) sha256=a6300d18dbaed0af5f20b26c0afb838c33ec462c76706a8cfce5b424d8f2e90d
+  httpx (1.5.0) sha256=50043f48b2e7bbe1be4298acddb8799aa6aae73cc7add694b0a3a6bf0fe3e148
   i18n (1.14.7) sha256=ceba573f8138ff2c0915427f1fc5bdf4aa3ab8ae88c8ce255eb3ecf0a11a5d0f
   ice_nine (0.11.2) sha256=5d506a7d2723d5592dc121b9928e4931742730131f22a1a37649df1c1e2e63db
   io-console (0.8.0) sha256=cd6a9facbc69871d69b2cb8b926fc6ea7ef06f06e505e81a64f14a470fddefa2
   irb (1.15.2) sha256=222f32952e278da34b58ffe45e8634bf4afc2dc7aa9da23fed67e581aa50fdba
-  json (2.11.3) sha256=9a10f658a2de67c0eb837eb795dd48132ce797c403e52b5ebef87dcdc7f9ccc1
+  json (2.12.2) sha256=ba94a48ad265605c8fa9a50a5892f3ba6a02661aa010f638211f3cb36f44abf4
   kamal (2.6.1) sha256=1fc4a95d5a483b4bb49c1745e52f1e1f8c0829483e63903dc4f9a6148bf5652a
   logger (1.7.0) sha256=196edec7cc44b66cfb40f9755ce11b392f21f7967696af15d274dde7edff0203
   loofah (2.24.1) sha256=655a30842b70ec476410b347ab1cd2a5b92da46a19044357bbd9f401b009a337
@@ -520,12 +520,12 @@ CHECKSUMS
   nokogiri (1.18.8-aarch64-linux-gnu) sha256=36badd2eb281fca6214a5188e24a34399b15d89730639a068d12931e2adc210e
   nokogiri (1.18.8-arm64-darwin) sha256=483b5b9fb33653f6f05cbe00d09ea315f268f0e707cfc809aa39b62993008212
   nokogiri (1.18.8-x86_64-linux-gnu) sha256=4a747875db873d18a2985ee2c320a6070c4a414ad629da625fbc58d1a20e5ecc
-  oj (3.16.10) sha256=7f26bed974e331e16d579b470b0865010757f6fe6ee30ea9b67df653fbe13d7c
+  oj (3.16.11) sha256=2aab609d2bc896529bd3c70d737f591c13932a640ba6164a0f7e414efdb052b1
   ostruct (0.6.1) sha256=09a3fb7ecc1fa4039f25418cc05ae9c82bd520472c5c6a6f515f03e4988cb817
   parallel (1.27.0) sha256=4ac151e1806b755fb4e2dc2332cbf0e54f2e24ba821ff2d3dcf86bf6dc4ae130
   pg (1.5.9) sha256=761efbdf73b66516f0c26fcbe6515dc7500c3f0aa1a1b853feae245433c64fdc
   pg_query (6.1.0) sha256=8b005229e209f12c5887c34c60d0eb2a241953b9475b53a9840d24578532481e
-  pghero (3.6.2) sha256=0520429820a6c209e32d39471fe09ea270f73f0a8f6154897c408fb02f2e5896
+  pghero (3.7.0) sha256=a8d8497095dbe168bb03fe50a11309ab068cd1c1ef4c88d9bbeb97be4809f522
   pp (0.6.2) sha256=947ec3120c6f92195f8ee8aa25a7b2c5297bb106d83b41baa02983686577b6ff
   prettyprint (0.2.0) sha256=2bc9e15581a94742064a3cc8b0fb9d45aae3d03a1baa6ef80922627a0766f193
   psych (5.2.6) sha256=814328aa5dcb6d604d32126a20bc1cbcf05521a5b49dbb1a8b30a07e580f316e
@@ -550,8 +550,8 @@ CHECKSUMS
   rexml (3.4.1) sha256=c74527a9a0a04b4ec31dbe0dc4ed6004b960af943d8db42e539edde3a871abca
   rubyzip (2.4.1) sha256=8577c88edc1fde8935eb91064c5cb1aef9ad5494b940cf19c775ee833e075615
   securerandom (0.4.1) sha256=cc5193d414a4341b6e225f0cb4446aceca8e50d5e1888743fac16987638ea0b1
-  selenium-webdriver (4.32.0) sha256=20dbdf27b586beeac9e2791a22312b414d0a30192b6ce144779f7dfde8ae8afe
-  sequel (5.92.0) sha256=cb06a61945b8647e5fd93f20402acce16cac559d7757417a5854151f294c443d
+  selenium-webdriver (4.33.0) sha256=720cad35cb7c2fdd87706940ed107bf2ec6873e50fa45b26f497fa28a8f97e1d
+  sequel (5.93.0) sha256=5828193600de98e160082b1cd984683c9412533861300b64521f58cb2a5129b2
   sequel-annotate (1.7.0) sha256=83f610615aab4c3111d6aafaf6b07256431e327848dc62424ade872f0dd42fcd
   sequel-batches (2.0.3) sha256=4ca4bfd585eab01ed45e455f4137166ed82028d3b8ec94ca051aac6e0b501aff
   sequel-rails (1.2.4) sha256=08578aaf6ad2bf2b1a235773a7a1f9957ea8c696f0554ccf996ca82d08d5a243
@@ -568,7 +568,7 @@ CHECKSUMS
   useragent (0.16.11) sha256=700e6413ad4bb954bb63547fa098dddf7b0ebe75b40cc6f93b8d54255b173844
   web-console (4.2.1) sha256=e7bcf37a10ea2b4ec4281649d1cee461b32232d0a447e82c786e6841fd22fe20
   websocket (1.2.11) sha256=b7e7a74e2410b5e85c25858b26b3322f29161e300935f70a0e0d3c35e0462737
-  websocket-driver (0.7.7) sha256=056d99f2cd545712cfb1291650fde7478e4f2661dc1db6a0fa3b966231a146b4
+  websocket-driver (0.8.0) sha256=ed0dba4b943c22f17f9a734817e808bc84cdce6a7e22045f5315aa57676d4962
   websocket-extensions (0.1.5) sha256=1c6ba63092cda343eb53fc657110c71c754c56484aad42578495227d717a8241
   xpath (3.2.0) sha256=6dfda79d91bb3b949b947ecc5919f042ef2f399b904013eb3ef6d20dd3a4082e
   zeitwerk (2.7.3) sha256=b2e86b4a9b57d26ba68a15230dcc7fe6f040f06831ce64417b0621ad96ba3e85
@@ -577,4 +577,4 @@ RUBY VERSION
    ruby 3.4.2p28
 
 BUNDLED WITH
-   2.6.8
+   2.6.9
