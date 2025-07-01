@@ -196,7 +196,7 @@ GEM
       bigdecimal
       rake (>= 13)
     http-2 (1.1.1)
-    httpx (1.5.0)
+    httpx (1.5.1)
       http-2 (>= 1.0.0)
     i18n (1.14.7)
       concurrent-ruby (~> 1.0)
@@ -491,7 +491,7 @@ CHECKSUMS
   google-protobuf (4.31.1-arm64-darwin) sha256=177ca61d254e4516d42997aa9d3127fd5e04ffc60c4ad333b1515ded6d7af89d
   google-protobuf (4.31.1-x86_64-linux-gnu) sha256=7def6dbf996dab289dd541a3ee8b201e2c3e35911c274325ad9b483ebffb6dcd
   http-2 (1.1.1) sha256=1141a5a03c2f4e6b8d2fa62394de581e1ff6387711cd7ed577212e9d95562bba
-  httpx (1.5.0) sha256=50043f48b2e7bbe1be4298acddb8799aa6aae73cc7add694b0a3a6bf0fe3e148
+  httpx (1.5.1) sha256=176c4900de823b03703c28c4bf47f9926f9955b2428fbfd5cbbd96c017698ae9
   i18n (1.14.7) sha256=ceba573f8138ff2c0915427f1fc5bdf4aa3ab8ae88c8ce255eb3ecf0a11a5d0f
   ice_nine (0.11.2) sha256=5d506a7d2723d5592dc121b9928e4931742730131f22a1a37649df1c1e2e63db
   io-console (0.8.0) sha256=cd6a9facbc69871d69b2cb8b926fc6ea7ef06f06e505e81a64f14a470fddefa2
