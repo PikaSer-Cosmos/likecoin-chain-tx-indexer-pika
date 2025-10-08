@@ -2,7 +2,7 @@
 
 # Make sure RUBY_VERSION matches the Ruby version in Gemfile
 # See version at https://gallery.ecr.aws/docker/library/ruby
-ARG RUBY_VERSION=3.4.4
+ARG RUBY_VERSION=3.4.6
 FROM public.ecr.aws/docker/library/ruby:$RUBY_VERSION-slim AS base
 
 # https://docs.docker.com/engine/reference/builder/#automatic-platform-args-in-the-global-scope
@@ -11,7 +11,7 @@ ARG TARGETOS
 ARG TARGETARCH
 ARG TARGETVARIANT
 
-ARG RUBYGEMS_VERSION="3.6.9"
+ARG RUBYGEMS_VERSION="3.7.2"
 
 # Rails app lives here
 WORKDIR /rails
@@ -57,13 +57,15 @@ RUN \
   MAKE="make --jobs $(nproc)" \
   bundle install --jobs="$(nproc)" && \
   rm -rf ~/.bundle/ "${BUNDLE_PATH}"/ruby/*/cache "${BUNDLE_PATH}"/ruby/*/bundler/gems/*/.git && \
-  bundle exec bootsnap precompile --gemfile
+  # -j 1 disable parallel compilation to avoid a QEMU bug: https://github.com/rails/bootsnap/issues/495
+  bundle exec bootsnap precompile -j 1 --gemfile
 
 # Copy application code
 COPY . .
 
-# Precompile bootsnap code for faster boot times
-RUN bundle exec bootsnap precompile app/ lib/
+# Precompile bootsnap code for faster boot times.
+# -j 1 disable parallel compilation to avoid a QEMU bug: https://github.com/rails/bootsnap/issues/495
+RUN bundle exec bootsnap precompile -j 1 app/ lib/
 
 
 # Final stage for app image
