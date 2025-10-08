@@ -16,13 +16,29 @@ ARG RUBYGEMS_VERSION="3.7.2"
 # Rails app lives here
 WORKDIR /rails
 
+# Install base packages
+# WITHOUT removing downloaded packages (saved in cache mount)
+RUN \
+  --mount=type=cache,id=apt-package-lists-$TARGETARCH$TARGETVARIANT,sharing=locked,target=/var/lib/apt/lists \
+  --mount=type=cache,id=apt-cache-$TARGETARCH$TARGETVARIANT,sharing=locked,target=/var/cache/apt \
+  apt-get update -qq && \
+  apt-get install --no-install-recommends -y  \
+    curl \
+    postgresql-client \
+    libjemalloc2 \
+  && \
+  ln -s /usr/lib/$(uname -m)-linux-gnu/libjemalloc.so.2 /usr/local/lib/libjemalloc.so \
+  && \
+  rm -rf /tmp/* /var/tmp/*
+
 # Set production environment
 ENV RAILS_ENV="production" \
     BUNDLE_DEPLOYMENT="1" \
     BUNDLE_PATH="/usr/local/bundle" \
     BUNDLE_USER_CACHE="/var/cache/bundle" \
     BUNDLE_GLOBAL_GEM_CACHE="true" \
-    BUNDLE_WITHOUT="development"
+    BUNDLE_WITHOUT="development" \
+    LD_PRELOAD="/usr/local/lib/libjemalloc.so"
 
 RUN \
   gem update --system="$RUBYGEMS_VERSION" --no-document \
@@ -70,19 +86,6 @@ RUN bundle exec bootsnap precompile -j 1 app/ lib/
 
 # Final stage for app image
 FROM base
-
-# Install packages needed for deployment
-# WITHOUT removing downloaded packages (saved in cache mount)
-RUN \
-  --mount=type=cache,id=apt-package-lists-$TARGETARCH$TARGETVARIANT,sharing=locked,target=/var/lib/apt/lists \
-  --mount=type=cache,id=apt-cache-$TARGETARCH$TARGETVARIANT,sharing=locked,target=/var/cache/apt \
-  apt-get update -qq && \
-  apt-get install --no-install-recommends -y  \
-    curl \
-    postgresql-client \
-    libjemalloc2 \
-  && \
-  rm -rf /tmp/* /var/tmp/*
 
 # Run and own only the runtime files as a non-root user for security
 RUN groupadd --system --gid 1000 rails && \
