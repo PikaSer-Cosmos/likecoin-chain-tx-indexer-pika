@@ -87,7 +87,7 @@ GEM
     bech32 (1.5.0)
       thor (>= 1.1.0)
     benchmark (0.4.1)
-    bigdecimal (3.3.0)
+    bigdecimal (3.3.1)
     bindex (0.8.1)
     bootsnap (1.18.6)
       msgpack (~> 1.2)
@@ -259,7 +259,7 @@ GEM
       racc (~> 1.4)
     nokogiri (1.18.10-x86_64-linux-gnu)
       racc (~> 1.4)
-    oj (3.16.11)
+    oj (3.16.12)
       bigdecimal (>= 3.0)
       ostruct (>= 0.2)
     ostruct (0.6.3)
@@ -457,7 +457,7 @@ CHECKSUMS
   bcrypt_pbkdf (1.1.1) sha256=2f9077dde837d1f0dd2eb0f9e5327c6871c68ebc8eba88870fb6b7956e1e2b13
   bech32 (1.5.0) sha256=04520e3bd899a8d9d27e698eb4fc0e9f9292b42d13628d9a1814b3b8a9a68a8a
   benchmark (0.4.1) sha256=d4ef40037bba27f03b28013e219b950b82bace296549ec15a78016552f8d2cce
-  bigdecimal (3.3.0) sha256=e116f692049da02a180f7b1d49859e828eb3a70d01e2efd8f78fb675738554f5
+  bigdecimal (3.3.1) sha256=eaa01e228be54c4f9f53bf3cc34fe3d5e845c31963e7fcc5bedb05a4e7d52218
   bindex (0.8.1) sha256=7b1ecc9dc539ed8bccfc8cb4d2732046227b09d6f37582ff12e50a5047ceb17e
   bootsnap (1.18.6) sha256=0ae2393c1e911e38be0f24e9173e7be570c3650128251bf06240046f84a07d00
   builder (3.3.0) sha256=497918d2f9dca528fdca4b88d84e4ef4387256d984b8154e9d5d3fe5a9c8835f
@@ -526,7 +526,7 @@ CHECKSUMS
   nokogiri (1.18.10-aarch64-linux-gnu) sha256=7fb87235d729c74a2be635376d82b1d459230cc17c50300f8e4fcaabc6195344
   nokogiri (1.18.10-arm64-darwin) sha256=c2b0de30770f50b92c9323fa34a4e1cf5a0af322afcacd239cd66ee1c1b22c85
   nokogiri (1.18.10-x86_64-linux-gnu) sha256=ff5ba26ba2dbce5c04b9ea200777fd225061d7a3930548806f31db907e500f72
-  oj (3.16.11) sha256=2aab609d2bc896529bd3c70d737f591c13932a640ba6164a0f7e414efdb052b1
+  oj (3.16.12) sha256=ad9fad6a06dabcf4cfe6a420690a4375377685c16eee0ae88e8d38a43ed7b556
   ostruct (0.6.3) sha256=95a2ed4a4bd1d190784e666b47b2d3f078e4a9efda2fccf18f84ddc6538ed912
   parallel (1.27.0) sha256=4ac151e1806b755fb4e2dc2332cbf0e54f2e24ba821ff2d3dcf86bf6dc4ae130
   pg (1.6.2-aarch64-linux) sha256=0503c6be5b0ca5ca3aaf91f2ed638f90843313cb81e8e7d7b60ad4bb62c3d131
