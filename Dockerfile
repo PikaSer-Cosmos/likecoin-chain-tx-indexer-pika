@@ -2,7 +2,7 @@
 
 # Make sure RUBY_VERSION matches the Ruby version in Gemfile
 # See version at https://gallery.ecr.aws/docker/library/ruby
-ARG RUBY_VERSION=3.4.6
+ARG RUBY_VERSION=3.4.7
 FROM public.ecr.aws/docker/library/ruby:$RUBY_VERSION-slim AS base
 
 # https://docs.docker.com/engine/reference/builder/#automatic-platform-args-in-the-global-scope
