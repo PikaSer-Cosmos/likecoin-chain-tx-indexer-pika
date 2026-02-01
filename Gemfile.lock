@@ -89,7 +89,7 @@ GEM
     bcrypt_pbkdf (1.1.2)
     bech32 (1.5.0)
       thor (>= 1.1.0)
-    bigdecimal (3.3.1)
+    bigdecimal (4.0.1)
     bindex (0.8.1)
     bootsnap (1.21.1)
       msgpack (~> 1.2)
@@ -129,7 +129,7 @@ GEM
       concurrent-ruby (~> 1.0)
       logger
       zeitwerk (~> 2.6)
-    dry-inflector (1.2.0)
+    dry-inflector (1.3.1)
     dry-initializer (3.2.0)
     dry-logic (1.6.0)
       bigdecimal
@@ -149,8 +149,8 @@ GEM
       dry-types (~> 1.8, >= 1.8.2)
       ice_nine (~> 0.11)
       zeitwerk (~> 2.6)
-    dry-types (1.8.3)
-      bigdecimal (~> 3.0)
+    dry-types (1.9.0)
+      bigdecimal (>= 3.0)
       concurrent-ruby (~> 1.0)
       dry-core (~> 1.0)
       dry-inflector (~> 1.0)
@@ -462,7 +462,7 @@ CHECKSUMS
   base64 (0.3.0) sha256=27337aeabad6ffae05c265c450490628ef3ebd4b67be58257393227588f5a97b
   bcrypt_pbkdf (1.1.2) sha256=c2414c23ce66869b3eb9f643d6a3374d8322dfb5078125c82792304c10b94cf6
   bech32 (1.5.0) sha256=04520e3bd899a8d9d27e698eb4fc0e9f9292b42d13628d9a1814b3b8a9a68a8a
-  bigdecimal (3.3.1) sha256=eaa01e228be54c4f9f53bf3cc34fe3d5e845c31963e7fcc5bedb05a4e7d52218
+  bigdecimal (4.0.1) sha256=8b07d3d065a9f921c80ceaea7c9d4ae596697295b584c296fe599dd0ad01c4a7
   bindex (0.8.1) sha256=7b1ecc9dc539ed8bccfc8cb4d2732046227b09d6f37582ff12e50a5047ceb17e
   bootsnap (1.21.1) sha256=9373acfe732da35846623c337d3481af8ce77c7b3a927fb50e9aa92b46dbc4c4
   builder (3.3.0) sha256=497918d2f9dca528fdca4b88d84e4ef4387256d984b8154e9d5d3fe5a9c8835f
@@ -480,12 +480,12 @@ CHECKSUMS
   drb (2.2.3) sha256=0b00d6fdb50995fe4a45dea13663493c841112e4068656854646f418fda13373
   dry-configurable (1.3.0) sha256=882d862858567fc1210d2549d4c090f34370fc1bb7c5c1933de3fe792e18afa8
   dry-core (1.2.0) sha256=0cc5a7da88df397f153947eeeae42e876e999c1e30900f3c536fb173854e96a1
-  dry-inflector (1.2.0) sha256=22f5d0b50fd57074ae57e2ca17e3b300e57564c218269dcf82ff3e42d3f38f2e
+  dry-inflector (1.3.1) sha256=7fb0c2bb04f67638f25c52e7ba39ab435d922a3a5c3cd196120f63accb682dcc
   dry-initializer (3.2.0) sha256=37d59798f912dc0a1efe14a4db4a9306989007b302dcd5f25d0a2a20c166c4e3
   dry-logic (1.6.0) sha256=da6fedbc0f90fc41f9b0cc7e6f05f5d529d1efaef6c8dcc8e0733f685745cea2
   dry-schema (1.14.1) sha256=2fcd7539a7099cacae6a22f6a3a2c1846fe5afeb1c841cde432c89c6cb9b9ff1
   dry-struct (1.8.0) sha256=74c38b559924fb6462ac43ec780c4533a082d7b1d238a8d7857b773b3b8e2966
-  dry-types (1.8.3) sha256=b5d97a45e0ed273131c0c3d5bc9f5633c2d1242e092ee47401ce7d5eab65c1bc
+  dry-types (1.9.0) sha256=7b656fe0a78d2432500ae1f29fefd6762f5a032ca7000e4f36bc111453d45d4d
   dry-validation (1.11.1) sha256=70900bb5a2d911c8aab566d3e360c6bff389b8bf92ea8e04885ce51c41ff8085
   ed25519 (1.4.0) sha256=16e97f5198689a154247169f3453ef4cfd3f7a47481fde0ae33206cdfdcac506
   env_bang (1.0.0) sha256=30998d7ac7c835ed7c4b6c3b6fd536de04923dea5fa2f3a89084fce22c5bd226
